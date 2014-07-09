@@ -4,7 +4,8 @@
  * @ignore
  */
 
-var BUI = require('bui-common'),
+var $ = require('jquery'),
+  BUI = require('bui-common'),
   Component = BUI.Component,
   DateUtil = BUI.Date,
   CLS_DATE = 'x-datepicker-date',

@@ -4,7 +4,7 @@
  */
 
   
-var BUI = require('bui-common'),
+var $ = require('jquery'),BUI = require('bui-common'),
   PREFIX = BUI.prefix,
   Component = BUI.Component,
   CLS_TEXT_YEAR = 'year-text',

@@ -7,7 +7,7 @@
   "author": "",
   "repository": {
     "type": "git",
-    "url": "git://github.com/buiteam/calendar.git"
+    "url": "git://github.com/buiteam/bui-calendar.git"
   },
   "bugs": {
     "url": ""
@@ -16,6 +16,7 @@
   "spm": {
     "main": "index.js",
     "dependencies": {
+      "jquery": "1.9.1",
       "bui-common": "1.1.0",
       "bui-picker": "1.1.0",
       "bui-toolbar": "1.1.0",
@@ -23,7 +24,8 @@
       "bui-list": "1.1.0"
     },
     "devDependencies": {
-      "expect.js": "0.3.1"
+      "expect.js": "0.3.1",
+      "sinon": "1.6.0"
     },
     "engines": {
       "seajs": "2.2.1"
