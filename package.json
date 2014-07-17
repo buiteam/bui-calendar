@@ -30,6 +30,7 @@
     "engines": {
       "seajs": "2.2.1"
     },
+    "buildArgs": "--ignore jquery",
     "tests": "tests/*.js"
   }
 }

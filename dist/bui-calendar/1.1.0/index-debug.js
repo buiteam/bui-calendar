@@ -1,4 +1,4 @@
-define("bui-calendar/1.1.0/index-debug", ["jquery/1.9.1/jquery-debug", "bui-common/1.1.0/common-debug", "bui-calendar/1.1.0/src/calendar-debug", "bui-calendar/1.1.0/src/monthpicker-debug", "bui-calendar/1.1.0/src/datepicker-debug", "bui-data/1.1.0/index-debug", "bui-list/1.1.0/index-debug", "bui-overlay/1.1.0/index-debug", "bui-picker/1.1.0/index-debug", "bui-calendar/1.1.0/src/header-debug", "bui-calendar/1.1.0/src/panel-debug", "bui-toolbar/1.1.0/index-debug"], function(require, exports, module) {
+define("bui-calendar/1.1.0/index-debug", ["jquery", "bui-common/1.1.0/common-debug", "bui-calendar/1.1.0/src/calendar-debug", "bui-calendar/1.1.0/src/monthpicker-debug", "bui-calendar/1.1.0/src/datepicker-debug", "bui-data/1.1.0/index-debug", "bui-list/1.1.0/index-debug", "bui-overlay/1.1.0/index-debug", "bui-picker/1.1.0/index-debug", "bui-calendar/1.1.0/src/header-debug", "bui-calendar/1.1.0/src/panel-debug", "bui-toolbar/1.1.0/index-debug"], function(require, exports, module) {
   /**
    * @fileOverview 日历命名空间入口
    * @ignore
@@ -12,7 +12,7 @@ define("bui-calendar/1.1.0/index-debug", ["jquery/1.9.1/jquery-debug", "bui-comm
   });
   module.exports = Calendar;
 });
-define("bui-calendar/1.1.0/src/calendar-debug", ["jquery/1.9.1/jquery-debug", "bui-common/1.1.0/common-debug", "bui-data/1.1.0/index-debug", "bui-list/1.1.0/index-debug", "bui-overlay/1.1.0/index-debug", "bui-picker/1.1.0/index-debug", "bui-calendar/1.1.0/src/monthpicker-debug", "bui-calendar/1.1.0/src/header-debug", "bui-calendar/1.1.0/src/panel-debug", "bui-toolbar/1.1.0/index-debug"], function(require, exports, module) {
+define("bui-calendar/1.1.0/src/calendar-debug", ["jquery", "bui-common/1.1.0/common-debug", "bui-data/1.1.0/index-debug", "bui-list/1.1.0/index-debug", "bui-overlay/1.1.0/index-debug", "bui-picker/1.1.0/index-debug", "bui-calendar/1.1.0/src/monthpicker-debug", "bui-calendar/1.1.0/src/header-debug", "bui-calendar/1.1.0/src/panel-debug", "bui-toolbar/1.1.0/index-debug"], function(require, exports, module) {
   /**
    * @fileOverview 日期控件
    * @author dxq613@gmail.com
@@ -487,13 +487,13 @@ define("bui-calendar/1.1.0/src/calendar-debug", ["jquery/1.9.1/jquery-debug", "b
   });
   module.exports = calendar;
 });
-define("bui-calendar/1.1.0/src/monthpicker-debug", ["jquery/1.9.1/jquery-debug", "bui-common/1.1.0/common-debug", "bui-overlay/1.1.0/index-debug", "bui-data/1.1.0/index-debug", "bui-list/1.1.0/index-debug", "bui-toolbar/1.1.0/index-debug"], function(require, exports, module) {
+define("bui-calendar/1.1.0/src/monthpicker-debug", ["jquery", "bui-common/1.1.0/common-debug", "bui-overlay/1.1.0/index-debug", "bui-data/1.1.0/index-debug", "bui-list/1.1.0/index-debug", "bui-toolbar/1.1.0/index-debug"], function(require, exports, module) {
   /**
    * @fileOverview 选择年月
    * @author dxq613@gmail.com
    * @ignore
    */
-  var $ = require("jquery/1.9.1/jquery-debug"),
+  var $ = require("jquery"),
     BUI = require("bui-common/1.1.0/common-debug"),
     Component = BUI.Component,
     Overlay = require("bui-overlay/1.1.0/index-debug").Overlay,
@@ -785,7 +785,7 @@ define("bui-calendar/1.1.0/src/monthpicker-debug", ["jquery/1.9.1/jquery-debug",
   });
   module.exports = monthPicker;
 });
-define("bui-calendar/1.1.0/src/datepicker-debug", ["jquery/1.9.1/jquery-debug", "bui-common/1.1.0/common-debug", "bui-data/1.1.0/index-debug", "bui-list/1.1.0/index-debug", "bui-overlay/1.1.0/index-debug", "bui-picker/1.1.0/index-debug", "bui-calendar/1.1.0/src/calendar-debug", "bui-calendar/1.1.0/src/monthpicker-debug", "bui-calendar/1.1.0/src/header-debug", "bui-calendar/1.1.0/src/panel-debug", "bui-toolbar/1.1.0/index-debug"], function(require, exports, module) {
+define("bui-calendar/1.1.0/src/datepicker-debug", ["jquery", "bui-common/1.1.0/common-debug", "bui-data/1.1.0/index-debug", "bui-list/1.1.0/index-debug", "bui-overlay/1.1.0/index-debug", "bui-picker/1.1.0/index-debug", "bui-calendar/1.1.0/src/calendar-debug", "bui-calendar/1.1.0/src/monthpicker-debug", "bui-calendar/1.1.0/src/header-debug", "bui-calendar/1.1.0/src/panel-debug", "bui-toolbar/1.1.0/index-debug"], function(require, exports, module) {
   /**
    * @fileOverview 日期选择器
    * @author dxq613@gmail.com
@@ -1019,12 +1019,12 @@ define("bui-calendar/1.1.0/src/datepicker-debug", ["jquery/1.9.1/jquery-debug", 
   });
   module.exports = datepicker;
 });
-define("bui-calendar/1.1.0/src/header-debug", ["jquery/1.9.1/jquery-debug", "bui-common/1.1.0/common-debug"], function(require, exports, module) {
+define("bui-calendar/1.1.0/src/header-debug", ["jquery", "bui-common/1.1.0/common-debug"], function(require, exports, module) {
   /**
    * @fileOverview 日期控件来选择年月的部分
    * @ignore
    */
-  var $ = require("jquery/1.9.1/jquery-debug"),
+  var $ = require("jquery"),
     BUI = require("bui-common/1.1.0/common-debug"),
     PREFIX = BUI.prefix,
     Component = BUI.Component,
@@ -1152,13 +1152,13 @@ define("bui-calendar/1.1.0/src/header-debug", ["jquery/1.9.1/jquery-debug", "bui
   });
   module.exports = header;
 });
-define("bui-calendar/1.1.0/src/panel-debug", ["jquery/1.9.1/jquery-debug", "bui-common/1.1.0/common-debug"], function(require, exports, module) {
+define("bui-calendar/1.1.0/src/panel-debug", ["jquery", "bui-common/1.1.0/common-debug"], function(require, exports, module) {
   /**
    * @fileOverview 日历控件显示一月的日期
    * @author dxq613@gmail.com
    * @ignore
    */
-  var $ = require("jquery/1.9.1/jquery-debug"),
+  var $ = require("jquery"),
     BUI = require("bui-common/1.1.0/common-debug"),
     Component = BUI.Component,
     DateUtil = BUI.Date,
