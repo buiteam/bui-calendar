@@ -7,11 +7,24 @@ var $ = require('jquery'),
   DatePicker = require('../src/datepicker'),
   MonthPicker = require('../src/monthpicker');
 
+require('bui-dpl/css/bs3/dpl.css');
+require('bui-dpl/css/bs3/bui.css');
+
 var CLS_DATE = 'x-datepicker-date',
     CLS_TEXT_YEAR= 'year-text',
     CLS_PREV = 'x-datepicker-prev',
     CLS_NEXT = 'x-datepicker-next';
     CLS_TEXT_MONTH = 'month-text';
+
+$('<div id="c1"></div>').appendTo('body');
+
+$('<div id="c2"></div>').appendTo('body');
+
+$('<div id="c3"></div>').appendTo('body');
+
+$('<div id="c4"></div>').appendTo('body');
+
+$('<div id="c6"></div>').appendTo('body');
 
 function today(){
     var now = new Date();

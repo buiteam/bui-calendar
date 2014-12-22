@@ -159,9 +159,9 @@ var calendar = Component.Controller.extend({
         }],
         autoAlign : false,
         align : {
-          node : _self.get('el'),
-          points:['bl','bl'],
-          offset:[0,-30]
+          node : _self.get('el').find('.bui-calendar-footer'),
+          points:['tl','bl'],
+          offset:[-1,1]
         },
         trigger : _self.get('el').find('.' +CLS_PICKER_TIME)
       });

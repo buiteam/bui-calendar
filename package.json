@@ -1,6 +1,6 @@
 {
   "name": "bui-calendar",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "keywords": [],
   "homepage": "",
@@ -17,15 +17,16 @@
     "main": "index.js",
     "dependencies": {
       "jquery": "1.9.1",
-      "bui-common": "1.1.0",
-      "bui-picker": "1.1.0",
-      "bui-toolbar": "1.1.0",
-      "bui-overlay": "1.1.0",
-      "bui-list": "1.1.0"
+      "bui-common": "~1.1.0",
+      "bui-picker": "~1.1.0",
+      "bui-toolbar": "~1.1.0",
+      "bui-overlay": "~1.1.0",
+      "bui-list": "~1.1.0"
     },
     "devDependencies": {
       "expect.js": "0.3.1",
-      "sinon": "1.6.0"
+      "sinon": "1.6.0",
+      "bui-dpl": "~1.1.0"
     },
     "engines": {
       "seajs": "2.2.1"
