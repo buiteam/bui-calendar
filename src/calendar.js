@@ -18,7 +18,8 @@ var BUI = require('bui-common'),
   Panel = require('./panel'),
   Toolbar = require('bui-toolbar'),
   Component = BUI.Component,
-  DateUtil = BUI.Date;
+  DateUtil = BUI.Date,
+  Resource = require('./resource');
 
 function today(){
   var now = new Date();
@@ -129,7 +130,7 @@ var calendar = Component.Controller.extend({
     }
 
     header.on('monthchange',function(e){
-      _self._setYearMonth(e.year,e.month);
+      _self.get('header')._setYearMonth(e.year,e.month);
     });
 
     header.on('headerclick',function(){
@@ -250,7 +251,7 @@ var calendar = Component.Controller.extend({
       });
       items.push({
         xclass:'bar-item-button',
-        text:'确定',
+        text:Resource.submit,
         btnCls: 'button button-small button-primary',
         listeners:{
           click:function(){
@@ -261,7 +262,7 @@ var calendar = Component.Controller.extend({
     }else{
       items.push({
         xclass:'bar-item-button',
-        text:'今天',
+        text:Resource.today,
         btnCls: 'button button-small',
 	      id:'todayBtn',
         listeners:{
@@ -274,7 +275,7 @@ var calendar = Component.Controller.extend({
       });
       items.push({
         xclass:'bar-item-button',
-        text:'清除',
+        text:Resource.clean,
         btnCls: 'button button-small',
         id:'clsBtn',
         listeners:{

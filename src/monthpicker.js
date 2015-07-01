@@ -18,10 +18,10 @@ var $ = require('jquery'),
   CLS_YEAR_NAV = 'x-monthpicker-yearnav',
   CLS_SELECTED = 'x-monthpicker-selected',
   CLS_ITEM = 'x-monthpicker-item',
-  months = ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+  Resource = require('./resource');
 
 function getMonths(){
-  return $.map(months,function(month,index){
+  return $.map(Resource.months,function(month,index){
     return {text:month,value:index};
   });
 }
@@ -49,7 +49,10 @@ var MonthPanel = List.extend({
     },
     items:{
       view:true,
-      value:getMonths()
+      valueFn: function(){
+        return getMonths();
+      }
+      
     },
     elCls : {
       view:true,
@@ -239,14 +242,14 @@ var monthPicker = Overlay.extend({
         children:[
           {
             xclass:'bar-item-button',
-            text:'确定',
+            text:Resource.submit,
             btnCls: 'button button-small button-primary',
             handler:function(){
               _self._successCall();
             }
           },{
             xclass:'bar-item-button',
-            text:'取消',
+            text:Resource.cancel,
             btnCls:'button button-small last',
             handler:function(){
               var callback = _self.get('cancel');

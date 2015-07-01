@@ -4,14 +4,17 @@
  */
 
   
-var $ = require('jquery'),BUI = require('bui-common'),
+var $ = require('jquery'),
+  BUI = require('bui-common'),
   PREFIX = BUI.prefix,
   Component = BUI.Component,
   CLS_TEXT_YEAR = 'year-text',
   CLS_TEXT_MONTH = 'month-text',
   CLS_ARROW = 'x-datepicker-arrow',
   CLS_PREV = 'x-datepicker-prev',
-  CLS_NEXT = 'x-datepicker-next';
+  CLS_NEXT = 'x-datepicker-next',
+  Resource = require('./resource'),
+  DateUtil = BUI.Date;
     
 /**
  * 日历控件显示选择年月
@@ -82,8 +85,19 @@ var header = Component.Controller.extend({
     _self.get('el').find('.' + CLS_TEXT_YEAR).text(v);
   },
   _uiSetMonth : function(v){
-      var _self = this;
+    var _self = this;
     _self.get('el').find('.' + CLS_TEXT_MONTH).text(v+1);
+  },
+  _setYearMonth: function(year,month) {
+    var _self = this;
+    var date = new Date(year,month);
+    var str = DateUtil.format(date,Resource.yearMonthMask);
+    if (str.indexOf('00') !== -1) {
+      var months = Resource.months;
+      str = str.replace('00',months[month]);
+    }
+    _self.get('el').find('.' + PREFIX + 'year-month-text').text(str);
+
   }
 
 },{
@@ -105,6 +119,9 @@ var header = Component.Controller.extend({
         this.set('monthText',v+1);
       }
     },
+    yearMonth:{
+      sync:false
+    },
     /**
      * @private
      * @type {Object}
@@ -114,16 +131,19 @@ var header = Component.Controller.extend({
     },
     tpl:{
       view:true,
-      value:'<div class="'+CLS_ARROW+' ' + CLS_PREV + '"><span class="icon icon-white icon-caret  icon-caret-left"></span></div>'+
+      valueFn: function  () {
+        return '<div class="'+CLS_ARROW+' ' + CLS_PREV + '"><span class="icon icon-white icon-caret  icon-caret-left"></span></div>'+
         '<div class="x-datepicker-month">'+
           '<div class="month-text-container">'+
-            '<span><span class="year-text">{year}</span>年 <span class="month-text">{monthText}</span>月</span>'+
+          '<span class="' + PREFIX + 'year-month-text "><span class="year-text">{year}</span><span class="yearStr">'+Resource.yearStr+'</span> <span class="month-text">{monthText}</span><span class="monthStr>"'+Resource.monthStr+'</span></span>'+
+             //'<span class="' + PREFIX + 'year-month-text ">{yearMonth}</span>',
             '<span class="' + PREFIX + 'caret ' + PREFIX + 'caret-down"></span>'+
           '</div>'+
         '</div>' +
-        '<div class="'+CLS_ARROW+' ' + CLS_NEXT + '"><span class="icon icon-white icon-caret  icon-caret-right"></span></div>'
-    },
-    elCls:{
+        '<div class="'+CLS_ARROW+' ' + CLS_NEXT + '"><span class="icon icon-white icon-caret  icon-caret-right"></span></div>';
+      }
+    }, 
+   elCls:{
       view:true,
       value:'x-datepicker-header'
     },

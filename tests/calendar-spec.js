@@ -5,7 +5,8 @@ var $ = require('jquery'),
   Header = require('../src/header'),
   Calendar = require('../src/calendar'),
   DatePicker = require('../src/datepicker'),
-  MonthPicker = require('../src/monthpicker');
+  MonthPicker = require('../src/monthpicker'),
+  Resource = require('../src/resource');
 
 require('bui-dpl/css/bs3/dpl.css');
 require('bui-dpl/css/bs3/bui.css');
@@ -26,11 +27,13 @@ $('<div id="c4"></div>').appendTo('body');
 
 $('<div id="c6"></div>').appendTo('body');
 
+$('<div id="c7"></div>').appendTo('body');
+
 function today(){
     var now = new Date();
     return new Date(now.getFullYear(),now.getMonth(),now.getDate());
   }
-/**/
+
 describe('测试panel', function(){
   var DateUtil = BUI.Date;
     
@@ -328,7 +331,6 @@ describe('测试日期生成', function(){
   });
 });
 
-/**/
 describe('测试datepicker', function(){
   $('<input type="text" id="dt1" class="calendar-time"/>').appendTo('body');
   var datepicker = new DatePicker({
@@ -427,6 +429,41 @@ describe('测试monthpicker', function(){
       expect(monthPanel.getSelectedValue()).to.be(month);
       expect(yearPanel.getSelectedValue()).to.be(year);
     })
+  });
+
+});
+
+
+describe('测试文本替换', function(){
+  Resource.setLanguage('en');
+
+  var calendar = new Calendar({
+    render:'#c7'
+  }),
+  DateUtil = BUI.Date;
+  calendar.render();
+
+  monthpicker = new MonthPicker({
+      render:'#m2'
+    }),
+  monthpicker.show();
+
+  var elMonth = monthpicker.get('el');
+  var elCalender = calendar.get('el');
+
+  describe('测试生成',function(){
+
+    it('测试星期文本',function(){
+      expect(elCalender.find('.x-datepicker-inner').find('th[title="Sunday"]').text()).to.be(Resource.weekDays[0]);
+    });
+
+    it('测试月份文本',function(){
+     expect(elMonth.find('.x-monthpicker-month:first a').text()).to.be(Resource.months[0]);
+    });
+
+    it('测试按钮文本',function(){
+      expect(elMonth.find('.x-monthpicker-footer .button-primary').text()).to.be(Resource.submit);
+    });
   });
 
 });

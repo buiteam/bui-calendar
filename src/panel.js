@@ -21,6 +21,8 @@ var $ = require('jquery'),
     active : 'active',
     disabled : 'disabled'
   },
+  resource = require('./resource'),
+ // currentWeekDays = resource.weekDays,
   weekDays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
 /**
@@ -361,21 +363,23 @@ var panel = Component.Controller.extend(
     },
     tpl:{
       view:true,
-      value:'<table class="x-datepicker-inner" cellspacing="0">' +
+      valueFn: function  () {
+        return '<table class="x-datepicker-inner" cellspacing="0">' +
               '<thead>' +
                  '<tr>' +
-                  '<th  title="Sunday"><span>日</span></th>' +
-                  '<th  title="Monday"><span>一</span></th>' +
-                  '<th  title="Tuesday"><span>二</span></th>' +
-                  '<th  title="Wednesday"><span>三</span></th>' +
-                  '<th  title="Thursday"><span>四</span></th>' +
-                  '<th  title="Friday"><span>五</span></th>' +
-                  '<th  title="Saturday"><span>六</span></th>' +
+                  '<th  title="Sunday"><span>'+resource.weekDays[0]+'</span></th>' +
+                  '<th  title="Monday"><span>'+resource.weekDays[1]+'</span></th>' +
+                  '<th  title="Tuesday"><span>'+resource.weekDays[2]+'</span></th>' +
+                  '<th  title="Wednesday"><span>'+resource.weekDays[3]+'</span></th>' +
+                  '<th  title="Thursday"><span>'+resource.weekDays[4]+'</span></th>' +
+                  '<th  title="Friday"><span>'+resource.weekDays[5]+'</span></th>' +
+                  '<th  title="Saturday"><span>'+resource.weekDays[6]+'</span></th>' +
                 '</tr>' +
               '</thead>' +
               '<tbody class="x-datepicker-body">' +
               '</tbody>' +
             '</table>'
+      }
     },
     xview : {value : panelView}
   }

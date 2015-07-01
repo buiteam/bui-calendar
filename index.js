@@ -9,7 +9,8 @@
   BUI.mix(Calendar, {
     Calendar: require('./src/calendar'),
     MonthPicker: require('./src/monthpicker'),
-    DatePicker: require('./src/datepicker')
+    DatePicker: require('./src/datepicker'),
+    Resource : require('./src/resource')
   });
 
   module.exports = Calendar;
