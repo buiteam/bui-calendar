@@ -165,6 +165,7 @@ describe('测试header', function(){
 
   header.render();
   headerEl = header.get('el');
+
   describe('日期头生成',function(){
     it('测试头部生成',function(){
       expect(headerEl.length).to.be(1);
@@ -172,20 +173,20 @@ describe('测试header', function(){
     });
 
     it('测试年月显示',function(){
-      expect(headerEl.find('.' + CLS_TEXT_YEAR).text()).to.be(year.toString());
-      expect(headerEl.find('.' + CLS_TEXT_MONTH).text()).to.be((month+1).toString())
+      expect(headerEl.find('.bui-year-month-text').text().indexOf(year.toString())).not.to.be(-1);
+      expect(headerEl.find('.bui-year-month-text').text().indexOf((month+1).toString())).not.to.be(-1);
     });
   });
 
   describe('改变年月',function(){
     it('更改月',function(){
       header.setMonth(year,month+2)
-      expect(headerEl.find('.' + CLS_TEXT_MONTH).text()).to.be((month+3).toString());
+      expect(headerEl.find('.bui-year-month-text').text().indexOf((month+3).toString())).not.to.be(-1);
     });
 
     it('更改年',function(){
       header.setMonth(year+2,month+2)
-      expect(headerEl.find('.' + CLS_TEXT_YEAR).text()).to.be((year+2).toString())
+      expect(headerEl.find('.bui-year-month-text').text().indexOf((year+2).toString())).not.to.be(-1)
     });
   });
 
@@ -435,24 +436,26 @@ describe('测试monthpicker', function(){
 
 
 describe('测试文本替换', function(){
-  Resource.setLanguage('en');
-
-  var calendar = new Calendar({
-    render:'#c7'
-  }),
-  DateUtil = BUI.Date;
-  calendar.render();
-
-  monthpicker = new MonthPicker({
-      render:'#m2'
-    }),
-  monthpicker.show();
-
-  var elMonth = monthpicker.get('el');
-  var elCalender = calendar.get('el');
-
   describe('测试生成',function(){
+    var calendar;
+    var elMonth;
+    var elCalender;
+    it('初始化',function () {
+      Resource.setLanguage('en');
+      calendar = new Calendar({
+        render:'#c7'
+      }),
+      DateUtil = BUI.Date;
+      calendar.render();
 
+      monthpicker = new MonthPicker({
+          render:'#m2'
+        }),
+      monthpicker.show();
+
+      elMonth = monthpicker.get('el');
+      elCalender = calendar.get('el');
+    })
     it('测试星期文本',function(){
       expect(elCalender.find('.x-datepicker-inner').find('th[title="Sunday"]').text()).to.be(Resource.weekDays[0]);
     });
@@ -467,4 +470,4 @@ describe('测试文本替换', function(){
   });
 
 });
-/**/
+

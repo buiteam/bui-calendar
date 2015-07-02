@@ -13,7 +13,7 @@ var Res = {
 		cancel : "取消"
 	},
 	en: {
-		yearMonthMask: "MM yyyy",
+		yearMonthMask: "MMM yyyy",
 		months : ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'],
 		weekDays : ['Su','Mo','Tu','We','Th','Fr','Sa'],
 		today : "today",
